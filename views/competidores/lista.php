@@ -12,7 +12,10 @@
             <th>Idade</th>
             <th>Peso</th>
             <th>Altura</th>
-            <th>Nacionalidade</th>
+            <th>Sexo</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>Equipe</th>
         </tr>
         <?php foreach ($competidores as $competidor): ?>
             <tr>
@@ -21,9 +24,13 @@
                 <td><?php echo $competidor['idade']; ?></td>
                 <td><?php echo $competidor['peso']; ?></td>
                 <td><?php echo $competidor['altura']; ?></td>
-                <td><?php echo $competidor['nacionalidade']; ?></td>
+                <td><?php echo $competidor['sexo']; ?></td>
+                <td><?php echo $competidor['cpf']; ?></td>
+                <td><?php echo $competidor['rg']; ?></td>
+                <td><?php echo $competidor['equipe']; ?></td>
             </tr>
         <?php endforeach; ?>
     </table>
 </body>
 </html>
+

@@ -6,10 +6,10 @@ class TreinadorModel {
         $this->pdo = $pdo;
     }
 
-    public function criarTreinador($nome, $idade, $nacionalidade) {
-        $sql = "INSERT INTO treinador (nome, idade, nacionalidade) VALUES (?, ?, ?)";
+    public function criarTreinador($nome, $idade, $altura, $peso, $cpf, $rg) {
+        $sql = "INSERT INTO treinador (nome, idade, altura, peso, cpf, rg) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $idade, $nacionalidade]);
+        $stmt->execute([$nome, $idade, $altura, $peso, $cpf, $rg]);
     }
 
     public function listarTreinador() {
@@ -18,16 +18,16 @@ class TreinadorModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Implementar métodos para atualizar e excluir esportes
     public function excluirTreinador($id_treinador) {
         $sql = "DELETE FROM treinador WHERE id_treinador = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id_treinador]);
     }
-    public function atualizarTreinador($id_treinador, $nome, $idade, $nacionalidade) {
-        $sql = "UPDATE treinador SET nome = ?, idade = ?, nacionalidade = ? WHERE id_treinador = ?";
+
+    public function atualizarTreinador($id_treinador, $nome, $idade, $altura, $peso, $cpf, $rg) {
+        $sql = "UPDATE treinador SET nome = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ? WHERE id_treinador = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $idade, $nacionalidade, $id_treinador]);
-}
+        $stmt->execute([$nome, $idade, $altura, $peso, $cpf, $rg, $id_treinador]);
+    }
 }
 ?>

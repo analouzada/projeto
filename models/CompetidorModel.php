@@ -6,10 +6,10 @@ class CompetidorModel {
         $this->pdo = $pdo;
     }
 
-    public function criarCompetidor($nome, $idade, $peso, $altura, $nacionalidade) {
-        $sql = "INSERT INTO competidor (nome, idade, peso, altura, nacionalidade) VALUES (?, ?, ?, ?, ?)";
+    public function criarCompetidor($nome, $idade, $peso, $altura, $sexo, $cpf, $rg, $equipe) {
+        $sql = "INSERT INTO competidor (nome, idade, peso, altura, sexo, cpf, rg, equipe) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $idade, $peso, $altura, $nacionalidade]);
+        $stmt->execute([$nome, $idade, $peso, $altura, $sexo, $cpf, $rg, $equipe]);
     }
 
     public function listarCompetidor() {
@@ -18,16 +18,16 @@ class CompetidorModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Implementar métodos para atualizar e excluir esportes
     public function excluirCompetidor($id_competidor) {
         $sql = "DELETE FROM competidor WHERE id_competidor = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id_competidor]);
     }
-    public function atualizarCompetidor($id_competidor, $nome, $idade, $peso, $altura, $nacionalidade) {
-        $sql = "UPDATE competidor SET nome = ?, idade = ?, peso = ?, altura = ?, nacionalidade = ? WHERE id_competidor = ?";
+
+    public function atualizarCompetidor($id_competidor, $nome, $idade, $peso, $altura, $sexo, $cpf, $rg, $equipe) {
+        $sql = "UPDATE competidor SET nome = ?, idade = ?, peso = ?, altura = ?, sexo = ?, cpf = ?, rg = ?, equipe = ? WHERE id_competidor = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $idade, $peso, $altura, $nacionalidade, $id_competidor]);
-}
+        $stmt->execute([$nome, $idade, $peso, $altura, $sexo, $cpf, $rg, $equipe, $id_competidor]);
+    }
 }
 ?>
