@@ -1,7 +1,7 @@
 <?php
 // Configurações do banco de dados
 $host = 'localhost';
-$dbname = 'olimpiadas';
+$dbname = 'crud_esporte';
 $username = 'root';
 $password = '';
 

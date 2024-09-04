@@ -3,7 +3,6 @@ require_once 'config.php';
 require_once 'controllers/EsporteController.php';
 require_once 'controllers/TreinadorController.php';
 require_once 'controllers/CompetidorController.php';
-require_once 'controllers/LocalidadeController.php';
 
 $esporteController = new EsporteController($pdo);
 
@@ -86,7 +85,6 @@ require_once 'config.php';
 require_once 'controllers/EsporteController.php';
 require_once 'controllers/TreinadorController.php';
 require_once 'controllers/CompetidorController.php';
-require_once 'controllers/LocalidadeController.php';
 
 $treinadorController = new TreinadorController($pdo);
 
@@ -94,8 +92,7 @@ if (isset($_POST['nome']) &&
     isset($_POST['idade']) &&
     isset($_POST['nacionalidade'])) 
 {
-    $treinadorController->criarTreinador($_POST['nome'], $_POST['idade'], $_POST['altura'], $_POST['peso'], $_POST['cpf'], $_POST['rg']);
-
+    $treinadorController->criarTreinador($_POST['nome'], $_POST['idade'],  $_POST['nacionalidade']);
 }
 
 
@@ -108,7 +105,7 @@ if (isset($_POST['excluir_treinador']))
 
 
 $treinadores = $treinadorController->listarTreinador();
-$treinadorController->exibirListaTreinador();
+
 ?>
 
 <!DOCTYPE html>
@@ -148,14 +145,12 @@ $treinadorController->exibirListaTreinador();
 
 <?php
 $treinadorController->exibirListaTreinador();
-?>
 
-<?php
-require_once 'config.php';
-require_once 'controllers/EsporteController.php';
-require_once 'controllers/TreinadorController.php';
-require_once 'controllers/CompetidorController.php';
-require_once 'controllers/LocalidadeController.php';
+
+
+
+
+
 
 
 $competidorController = new CompetidorController($pdo); 
@@ -166,9 +161,7 @@ if (isset($_POST['nome']) &&
     isset($_POST['altura']) &&
     isset($_POST['nacionalidade'])) 
 {
-    $competidorController->criarCompetidor($_POST['nome'], $_POST['idade'], $_POST['altura'], $_POST['peso'], $_POST['sexo'], $_POST['cpf'], $_POST['rg'], $_POST['equipe']
-    );
-    
+    $competidorController->criarCompetidor($_POST['nome'], $_POST['idade'], $_POST['peso'], $_POST['altura'],  $_POST['nacionalidade']);
 }
 
 
@@ -221,97 +214,6 @@ $competidores = $competidorController->listarCompetidor();
 
 <?php
 $competidorController->exibirListaCompetidor();
-?>
-
-<?php
-require_once 'config.php';
-require_once 'controllers/EsporteController.php';
-require_once 'controllers/TreinadorController.php';
-require_once 'controllers/CompetidorController.php';
-require_once 'controllers/LocalidadeController.php';
-
-$localidadeController = new LocalidadeController($pdo); 
-
-if (isset($_POST['rua']) && 
-    isset($_POST['bairro']) &&
-    isset($_POST['numero']) &&
-    isset($_POST['cep']) &&
-    isset($_POST['cidade']) &&
-    isset($_POST['estado']) &&
-    isset($_POST['pais'])) 
-{
-    $localidadeController->criarLocalidade(
-        $_POST['rua'], 
-        $_POST['bairro'], 
-        $_POST['numero'], 
-        $_POST['cep'], 
-        $_POST['cidade'], 
-        $_POST['estado'], 
-        $_POST['pais']
-    );
-}
-
-if (isset($_POST['excluir_localidade'])) 
-{
-    $localidadeController->excluirLocalidade($_POST['excluir_localidade_id']);
-}
-
-$localidades = $localidadeController->listarLocalidade();
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>CRUD com MVC e PDO - Localidades</title>
-</head>
-<body>
-    <h1>Localidades</h1>
-    
-    <!-- Formulário para adicionar nova Localidade -->
-    <form method="post">
-        <input type="text" name="rua" placeholder="Rua" required>
-        <input type="text" name="bairro" placeholder="Bairro" required>
-        <input type="text" name="numero" placeholder="Número" required>
-        <input type="text" name="cep" placeholder="CEP" required>
-        <input type="text" name="cidade" placeholder="Cidade" required>
-        <input type="text" name="estado" placeholder="Estado" required>
-        <input type="text" name="pais" placeholder="País" required>
-        <button type="submit">Adicionar Localidade</button>
-    </form>
-
-    <h2>Lista de Localidades</h2>
-    <!-- Lista de todas as Localidades -->
-    <ul>
-        <?php foreach ($localidades as $localidade): ?>
-            <li><?php echo $localidade['rua']; ?>, 
-                <?php echo $localidade['bairro']; ?>, 
-                <?php echo $localidade['numero']; ?> - 
-                <?php echo $localidade['cep']; ?> - 
-                <?php echo $localidade['cidade']; ?>, 
-                <?php echo $localidade['estado']; ?>, 
-                <?php echo $localidade['pais']; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-
-    <h2>Excluir Localidade</h2>
-    <!-- Formulário para excluir uma Localidade -->
-    <form method="post">
-        <input type="hidden" name="excluir_localidade" value="excluir_localidade">
-        <select name="excluir_localidade_id">
-            <?php foreach ($localidades as $localidade): ?>
-                <option value="<?php echo $localidade['id_localidade']; ?>">
-                    <?php echo $localidade['rua'] . ', ' . $localidade['bairro']; ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <button type="submit">Excluir Localidade</button>
-    </form>    
-</body>
-</html>
-
-<?php
-$localidadeController->exibirListaLocalidade();
 ?>
 
 
