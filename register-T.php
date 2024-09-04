@@ -1,3 +1,26 @@
+<?php
+require_once 'config/config.php';
+require_once 'controllers/TreinadorController.php';
+
+$controller = new TreinadorController($pdo);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST['nome']) && !empty($_POST['idade']) && !empty($_POST['altura']) && !empty($_POST['peso']) && !empty($_POST['cpf']) && !empty($_POST['rg'])) {
+        $nome = $_POST['nome'];
+        $idade = $_POST['idade'];
+        $altura = $_POST['altura'];
+        $peso = $_POST['peso'];
+        $cpf = $_POST['cpf'];
+        $rg = $_POST['rg'];
+
+        $controller->criarTreinador($nome, $idade, $altura, $peso, $cpf, $rg);
+
+    } else {
+        echo "Todos os campos obrigatórios devem ser preenchidos.";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,7 +39,7 @@
 
 <!--Formulário de registro-->
 <div class="register-form">
-<form>
+<form method="post">
 <div class="form-ico">
 <img src="public/assets/img/pngtree-football-championship-realistic-soccer-ball-isolated-png-image_6125491.png">    
 </div>
@@ -26,16 +49,13 @@
 <input type="text" name="nome" placeholder="Name">
 
 <label id="direction">Age</label>
-<input type="text" name="age" placeholder="Age">
+<input type="text" name="idade" placeholder="Age">
 
 <label id="direction">Height</label>
-<input type="text" name="height" placeholder="Height">
+<input type="text" name="altura" placeholder="Height">
 
 <label id="direction">Weight</label>
-<input type="text" name="weight" placeholder="Weight">
-
-<label id="direction">Gender</label>
-<input type="text" name="gender" placeholder="Gender">
+<input type="text" name="peso" placeholder="Weight">
 
 <label id="direction">CPF</label>
 <input type="text" name="cpf" placeholder="CPF">
@@ -43,11 +63,9 @@
 <label id="direction">RG</label>
 <input type="text" name="rg" placeholder="RG">
 
-<label id="direction">Team</label>
-<input type="text" name="team" placeholder="Team">
 
 <div class="r-button">
-<button>Register</button>
+<button type="submit">Register</input>
 </div>
 </div>
 </form>

@@ -18,16 +18,16 @@ class TreinadorModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function excluirTreinador($id_treinador) {
-        $sql = "DELETE FROM treinador WHERE id_treinador = ?";
+    public function excluirTreinador($id) {
+        $sql = "DELETE FROM treinador WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id_treinador]);
+        $stmt->execute([$id]);
     }
 
-    public function atualizarTreinador($id_treinador, $nome, $idade, $altura, $peso, $cpf, $rg) {
-        $sql = "UPDATE treinador SET nome = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ? WHERE id_treinador = ?";
+    public function atualizarTreinador($id, $nome, $idade, $altura, $peso, $cpf, $rg) {
+        $sql = "UPDATE treinador SET nome = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ? WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome, $idade, $altura, $peso, $cpf, $rg, $id_treinador]);
+        $stmt->execute([$nome, $idade, $altura, $peso, $cpf, $rg, $id]);
     }
 }
 ?>
