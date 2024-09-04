@@ -1,7 +1,6 @@
 <?php
 require_once 'models/TreinadorModel.php';
 
-
 class TreinadorController {
     private $treinadorModel;
 
@@ -9,8 +8,8 @@ class TreinadorController {
         $this->treinadorModel = new TreinadorModel($pdo);
     }
 
-    public function criarTreinador($nome, $idade, $nacionalidade) {
-        $this->treinadorModel->criarTreinador($nome, $idade, $nacionalidade);
+    public function criarTreinador($nome, $idade, $altura, $peso, $cpf, $rg) {
+        $this->treinadorModel->criarTreinador($nome, $idade, $altura, $peso, $cpf, $rg);
     }
 
     public function listarTreinador() {
@@ -26,12 +25,8 @@ class TreinadorController {
         $this->treinadorModel->excluirTreinador($id_treinador);
     }
 
-    public function atualizarTreinador($id_treinador, $nome, $idade, $nacionalidade) {
-        $this->treinadorModel->atualizarTreinador
-        ($id_treinador, $nome, $idade, $nacionalidade);
+    public function atualizarTreinador($id_treinador, $nome, $idade, $altura, $peso, $cpf, $rg) {
+        $this->treinadorModel->atualizarTreinador($id_treinador, $nome, $idade, $altura, $peso, $cpf, $rg);
     }
 }
-
-    
 ?>
-
