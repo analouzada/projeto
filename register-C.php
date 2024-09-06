@@ -1,3 +1,33 @@
+<?php
+require_once 'config/config.php';
+require_once 'controllers/CompetidorController.php';
+
+$controller = new CompetidorController($pdo);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (
+        !empty($_POST['nome']) && !empty($_POST['idade']) && !empty($_POST['altura']) && !empty($_POST['peso']) && 
+        !empty($_POST['genero']) && !empty($_POST['cpf']) && !empty($_POST['rg']) && !empty($_POST['equipe'])
+    ) {
+        $nome = $_POST['nome'];
+        $idade = $_POST['idade'];
+        $altura = $_POST['altura'];
+        $peso = $_POST['peso'];
+        $genero = $_POST['genero'];
+        $cpf = $_POST['cpf'];
+        $rg = $_POST['rg'];
+        $equipe = $_POST['equipe'];
+
+        // Assuming criarCompetidor is a method in CompetidorController for saving competitor data
+        $controller->criarCompetidor($nome, $idade, $altura, $peso, $genero, $cpf, $rg, $equipe);
+        header("Location: listacompetidor.php");
+
+    } else {
+        echo "Todos os campos obrigatórios devem ser preenchidos.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,26 +46,26 @@
 
 <!--Formulário de registro-->
 <div class="register-form">
-<form>
+<form method="post">
 <div class="form-ico">
 <img src="public/assets/img/pngtree-football-championship-realistic-soccer-ball-isolated-png-image_6125491.png">    
 </div>
 <h1>Register</h1>
 <div class="form-input">
-<label id="direction">Name</label>
-<input type="text" name="nome" placeholder="Name">
+<label id="direction">Nome</label>
+<input type="text" name="nome" placeholder="Nome">
 
-<label id="direction">Age</label>
-<input type="text" name="age" placeholder="Age">
+<label id="direction">Idade</label>
+<input type="text" name="idade" placeholder="Idade">
 
-<label id="direction">Height</label>
-<input type="text" name="height" placeholder="Height">
+<label id="direction">Altura</label>
+<input type="text" name="altura" placeholder="Altura">
 
-<label id="direction">Weight</label>
-<input type="text" name="weight" placeholder="Weight">
+<label id="direction">Peso</label>
+<input type="text" name="peso" placeholder="Peso">
 
-<label id="direction">Gender</label>
-<input type="text" name="gender" placeholder="Gender">
+<label id="direction">Gênero</label>
+<input type="text" name="genero" placeholder="Gênero">
 
 <label id="direction">CPF</label>
 <input type="text" name="cpf" placeholder="CPF">
@@ -43,11 +73,12 @@
 <label id="direction">RG</label>
 <input type="text" name="rg" placeholder="RG">
 
-<label id="direction">Team</label>
-<input type="text" name="team" placeholder="Team">
+<label id="direction">Equipe</label>
+<input type="text" name="equipe" placeholder="Equipe">
+
 
 <div class="r-button">
-<button>Register</button>
+<button type="submit">Register</button>
 </div>
 </div>
 </form>

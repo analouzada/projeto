@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Lista de Localidades</h1>
-    <table>
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>Rua</th>
@@ -18,7 +18,7 @@
         </tr>
         <?php foreach ($localidades as $localidade): ?>
             <tr>
-                <td><?php echo $localidade['id_localidade']; ?></td>
+                <td><?php echo $localidade['id']; ?></td>
                 <td><?php echo $localidade['rua']; ?></td>
                 <td><?php echo $localidade['bairro']; ?></td>
                 <td><?php echo $localidade['numero']; ?></td>
@@ -26,6 +26,11 @@
                 <td><?php echo $localidade['cidade']; ?></td>
                 <td><?php echo $localidade['estado']; ?></td>
                 <td><?php echo $localidade['pais']; ?></td>
+                <?php
+                                echo "<td><a class='btn-editar' style='color:blue;'
+                                href='atualizarlocalidade.php?id={$localidade['id']}'>Atualizar</a></td>";
+
+                            ?>
             </tr>
         <?php endforeach; ?>
     </table>

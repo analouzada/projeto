@@ -19,15 +19,15 @@ class EsporteModel {
     }
 
     // Implementar métodos para atualizar e excluir esportes
-    public function excluirEsporte($id_esporte) {
-        $sql = "DELETE FROM esporte WHERE id_esporte = ?";
+    public function excluirEsporte($id) {
+        $sql = "DELETE FROM esporte WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id_esporte]);
+        $stmt->execute([$id]);
     }
-    public function atualizarEsporte($id_esporte, $modalidade, $ano_olimpiada) {
-        $sql = "UPDATE esporte SET modalidade = ?, ano_olimpiada = ? WHERE id_esporte = ?";
+    public function atualizarEsporte($id, $modalidade, $ano_olimpiada) {
+        $sql = "UPDATE esporte SET modalidade = ?, ano_olimpiada = ? WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$modalidade, $ano_olimpiada, $id_esporte]);
+        $stmt->execute([$modalidade, $ano_olimpiada, $id]);
 }
 }
 ?>

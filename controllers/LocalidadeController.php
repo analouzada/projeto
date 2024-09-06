@@ -18,15 +18,15 @@ class LocalidadeController {
 
     public function exibirListaLocalidade() {
         $localidades = $this->localidadeModel->listarLocalidade();
-        include 'views/localidades/lista.php';
+        include 'views/localidade/lista.php';
     }
 
-    public function excluirLocalidade($id_localidade) {
-        $this->localidadeModel->excluirLocalidade($id_localidade);
+    public function excluirLocalidade($id) {
+        $this->localidadeModel->excluirLocalidade($id);
     }
 
-    public function atualizarLocalidade($id_localidade, $rua, $bairro, $numero, $cep, $cidade, $estado, $pais) {
-        $this->localidadeModel->atualizarLocalidade($id_localidade, $rua, $bairro, $numero, $cep, $cidade, $estado, $pais);
+    public function atualizarLocalidade($id, $rua, $bairro, $numero, $cep, $cidade, $estado, $pais) {
+        $this->localidadeModel->atualizarLocalidade($id, $rua, $bairro, $numero, $cep, $cidade, $estado, $pais);
     }
 }
 ?>

@@ -18,16 +18,16 @@ class LocalidadeModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function excluirLocalidade($id_localidade) {
-        $sql = "DELETE FROM localidade WHERE id_localidade = ?";
+    public function excluirLocalidade($id) {
+        $sql = "DELETE FROM localidade WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id_localidade]);
+        $stmt->execute([$id]);
     }
 
-    public function atualizarLocalidade($id_localidade, $rua, $bairro, $numero, $cep, $cidade, $estado, $pais) {
-        $sql = "UPDATE localidade SET rua = ?, bairro = ?, numero = ?, cep = ?, cidade = ?, estado = ?, pais = ? WHERE id_localidade = ?";
+    public function atualizarLocalidade($id, $rua, $bairro, $numero, $cep, $cidade, $estado, $pais) {
+        $sql = "UPDATE localidade SET rua = ?, bairro = ?, numero = ?, cep = ?, cidade = ?, estado = ?, pais = ? WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$rua, $bairro, $numero, $cep, $cidade, $estado, $pais, $id_localidade]);
+        $stmt->execute([$rua, $bairro, $numero, $cep, $cidade, $estado, $pais, $id]);
     }
 }
 ?>
