@@ -26,7 +26,7 @@ $esportes = $esporteController->listarEsportes();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CRUD com MVC e PDO</title>
+    <title>CRUD com MVC </title>
 </head>
 <body>
     <h1>Esportes</h1>
