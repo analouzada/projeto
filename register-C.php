@@ -1,3 +1,31 @@
+<?php
+require_once 'config/config.php';
+require_once 'controllers/CompetidorController.php';
+
+$controller = new CompetidorController($pdo);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (
+        !empty($_POST['nome']) && !empty($_POST['idade']) && !empty($_POST['altura']) && !empty($_POST['peso']) && 
+        !empty($_POST['genero']) && !empty($_POST['cpf']) && !empty($_POST['rg']) && !empty($_POST['equipe'])
+    ) {
+        $nome = $_POST['nome'];
+        $idade = $_POST['idade'];
+        $altura = $_POST['altura'];
+        $peso = $_POST['peso'];
+        $genero = $_POST['genero'];
+        $cpf = $_POST['cpf'];
+        $rg = $_POST['rg'];
+        $equipe = $_POST['equipe'];
+
+        // Assuming criarCompetidor is a method in CompetidorController for saving competitor data
+        $controller->criarCompetidor($nome, $idade, $altura, $peso, $genero, $cpf, $rg, $equipe);
+
+    } else {
+        echo "Todos os campos obrigatórios devem ser preenchidos.";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,7 +45,7 @@
 
 <!--Formulário de registro-->
 <div class="register-form">
-<form>
+<form method="post">
 <div class="form-ico">
 <img src="public/assets/img/pngtree-football-championship-realistic-soccer-ball-isolated-png-image_6125491.png">    
 </div>
@@ -49,7 +77,7 @@
 
 
 <div class="r-button">
-<button>Register</button>
+<button type="submit">Register</button>
 </div>
 </div>
 </form>
