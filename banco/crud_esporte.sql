@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/09/2024 às 16:04
+-- Tempo de geração: 06/09/2024 às 18:13
 -- Versão do servidor: 10.4.27-MariaDB
 -- Versão do PHP: 8.2.0
 
@@ -33,7 +33,7 @@ CREATE TABLE `competidor` (
   `idade` varchar(255) NOT NULL,
   `peso` varchar(255) NOT NULL,
   `altura` varchar(255) NOT NULL,
-  `sexo` varchar(255) NOT NULL,
+  `genero` varchar(255) NOT NULL,
   `cpf` varchar(255) NOT NULL,
   `rg` varchar(255) NOT NULL,
   `equipe` varchar(255) NOT NULL
@@ -43,8 +43,8 @@ CREATE TABLE `competidor` (
 -- Despejando dados para a tabela `competidor`
 --
 
-INSERT INTO `competidor` (`id`, `nome`, `idade`, `peso`, `altura`, `sexo`, `cpf`, `rg`, `equipe`) VALUES
-(2, 'Jp', '18', '1,63', '80', 'Masculino', '432.780.908-02', '4', '12');
+INSERT INTO `competidor` (`id`, `nome`, `idade`, `peso`, `altura`, `genero`, `cpf`, `rg`, `equipe`) VALUES
+(3, 'Jp', '187', '1,63', '80', 'Masculino', '43278090802', '4', '12');
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ CREATE TABLE `localidade` (
 --
 
 INSERT INTO `localidade` (`id`, `rua`, `bairro`, `numero`, `cep`, `cidade`, `estado`, `pais`) VALUES
-(3, 'Rua flor', 'dsfdsf', 232, 432432, '32432', 'São Paulo', 'Brasil');
+(5, 'Rua flor', 'dsfdsf', 232, 2147483647, 'qwqw', 'São Paulo', 'Brasil');
 
 -- --------------------------------------------------------
 
@@ -104,13 +104,6 @@ CREATE TABLE `treinador` (
   `cpf` varchar(255) NOT NULL,
   `rg` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Despejando dados para a tabela `treinador`
---
-
-INSERT INTO `treinador` (`id`, `nome`, `idade`, `altura`, `peso`, `cpf`, `rg`) VALUES
-(1, 'Jp', '18', '1,63', '80', '43278090802', '4');
 
 --
 -- Índices para tabelas despejadas
@@ -148,19 +141,19 @@ ALTER TABLE `treinador`
 -- AUTO_INCREMENT de tabela `competidor`
 --
 ALTER TABLE `competidor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `esporte`
 --
 ALTER TABLE `esporte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `localidade`
 --
 ALTER TABLE `localidade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `treinador`
