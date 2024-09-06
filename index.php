@@ -216,15 +216,4 @@ $competidores = $competidorController->listarCompetidor();
 $competidorController->exibirListaCompetidor();
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
+            <!--index.php -->
