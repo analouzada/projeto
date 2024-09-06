@@ -1,3 +1,26 @@
+<?php
+require_once 'config/config.php';
+require_once 'controllers/TreinadorController.php';
+
+$controller = new TreinadorController($pdo);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST['nome']) && !empty($_POST['idade']) && !empty($_POST['altura']) && !empty($_POST['peso']) && !empty($_POST['cpf']) && !empty($_POST['rg'])) {
+        $nome = $_POST['nome'];
+        $idade = $_POST['idade'];
+        $altura = $_POST['altura'];
+        $peso = $_POST['peso'];
+        $cpf = $_POST['cpf'];
+        $rg = $_POST['rg'];
+
+        $controller->criarTreinador($nome, $idade, $altura, $peso, $cpf, $rg);
+
+    } else {
+        echo "Todos os campos obrigatórios devem ser preenchidos.";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

@@ -23,13 +23,13 @@ class EsporteController {
     }
 
 
-    public function excluirEsporte($id_esporte) {
-        $this->esporteModel->excluirEsporte($id_esporte);
+    public function excluirEsporte($id) {
+        $this->esporteModel->excluirEsporte($id);
     }
 
-    public function atualizarEsporte($id_esporte, $modalidade, $ano_olimpiada) {
+    public function atualizarEsporte($id, $modalidade, $ano_olimpiada) {
         $this->esporteModel->atualizarEsporte
-        ($id_esporte, $modalidade, $ano_olimpiada);
+        ($id, $modalidade, $ano_olimpiada);
     }
 
 }
