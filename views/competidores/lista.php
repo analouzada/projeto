@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Lista de Competidores</h1>
-    <table>
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>Nome</th>
@@ -19,7 +19,7 @@
         </tr>
         <?php foreach ($competidores as $competidor): ?>
             <tr>
-                <td><?php echo $competidor['id_competidor']; ?></td>
+                <td><?php echo $competidor['id']; ?></td>
                 <td><?php echo $competidor['nome']; ?></td>
                 <td><?php echo $competidor['idade']; ?></td>
                 <td><?php echo $competidor['peso']; ?></td>

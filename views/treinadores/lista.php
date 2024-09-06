@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Lista de Treinadores</h1>
-    <table>
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>Nome</th>
@@ -17,7 +17,7 @@
         </tr>
         <?php foreach ($treinadores as $treinador): ?>
             <tr>
-                <td><?php echo $treinador['id_treinador']; ?></td>
+                <td><?php echo $treinador['id']; ?></td>
                 <td><?php echo $treinador['nome']; ?></td>
                 <td><?php echo $treinador['idade']; ?></td>
                 <td><?php echo $treinador['altura']; ?></td>

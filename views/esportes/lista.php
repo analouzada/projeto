@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Lista de Esportes</h1>
-    <table>
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>Modalidade</th>
@@ -13,7 +13,7 @@
         </tr>
         <?php foreach ($esportes as $esporte): ?>
             <tr>
-                <td><?php echo $esporte['id_esporte']; ?></td>
+                <td><?php echo $esporte['id']; ?></td>
                 <td><?php echo $esporte['modalidade']; ?></td>
                 <td><?php echo $esporte['ano_olimpiada']; ?></td>
             </tr>

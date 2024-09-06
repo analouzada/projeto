@@ -18,7 +18,7 @@ class LocalidadeController {
 
     public function exibirListaLocalidade() {
         $localidades = $this->localidadeModel->listarLocalidade();
-        include 'views/localidades/lista.php';
+        include 'views/localidade/lista.php';
     }
 
     public function excluirLocalidade($id) {
