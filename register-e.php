@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ano_olimpiada = $_POST['ano_olimpiada'];
 
         $controller->criarEsporte($modalidade, $ano_olimpiada);
-
+        header("Location: listaesporte.php");
     } else {
         echo "Todos os campos obrigatórios devem ser preenchidos.";
     }

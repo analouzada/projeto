@@ -16,6 +16,11 @@
                 <td><?php echo $esporte['id']; ?></td>
                 <td><?php echo $esporte['modalidade']; ?></td>
                 <td><?php echo $esporte['ano_olimpiada']; ?></td>
+                <?php
+                                echo "<td><a class='btn-editar' style='color:blue;'
+                                href='atualizaresporte.php?id={$esporte['id']}'>Atualizar</a></td>";
+
+                            ?>
             </tr>
         <?php endforeach; ?>
     </table>

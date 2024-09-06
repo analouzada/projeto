@@ -7,3 +7,4 @@ $controller = new EsporteController($pdo);
 
 $controller->exibirListaEsportes();
 ?>
+<a href="register-e.php">Registrar Novo?</a>

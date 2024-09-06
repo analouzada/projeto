@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Assuming criarCompetidor is a method in CompetidorController for saving competitor data
         $controller->criarCompetidor($nome, $idade, $altura, $peso, $genero, $cpf, $rg, $equipe);
+        header("Location: listacompetidor.php");
 
     } else {
         echo "Todos os campos obrigatórios devem ser preenchidos.";

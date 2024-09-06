@@ -12,7 +12,7 @@
             <th>Idade</th>
             <th>Peso</th>
             <th>Altura</th>
-            <th>Sexo</th>
+            <th>Gênero</th>
             <th>CPF</th>
             <th>RG</th>
             <th>Equipe</th>
@@ -24,10 +24,15 @@
                 <td><?php echo $competidor['idade']; ?></td>
                 <td><?php echo $competidor['peso']; ?></td>
                 <td><?php echo $competidor['altura']; ?></td>
-                <td><?php echo $competidor['sexo']; ?></td>
+                <td><?php echo $competidor['genero']; ?></td>
                 <td><?php echo $competidor['cpf']; ?></td>
                 <td><?php echo $competidor['rg']; ?></td>
                 <td><?php echo $competidor['equipe']; ?></td>
+                <?php
+                                echo "<td><a class='btn-editar' style='color:blue;'
+                                href='atualizarcompetidor.php?id={$competidor['id']}'>Atualizar</a></td>";
+
+                            ?>
             </tr>
         <?php endforeach; ?>
     </table>

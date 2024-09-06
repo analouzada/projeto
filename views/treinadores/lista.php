@@ -24,6 +24,11 @@
                 <td><?php echo $treinador['peso']; ?></td>
                 <td><?php echo $treinador['cpf']; ?></td>
                 <td><?php echo $treinador['rg']; ?></td>
+                <?php
+                                echo "<td><a class='btn-editar' style='color:blue;'
+                                href='atualizartreinador.php?id={$treinador['id']}'>Atualizar</a></td>";
+
+                            ?>
             </tr>
         <?php endforeach; ?>
     </table>

@@ -7,3 +7,4 @@ $controller = new CompetidorController($pdo);
 
 $controller->exibirListaCompetidor();
 ?>
+<a href="register-c.php">Registrar Novo?</a>

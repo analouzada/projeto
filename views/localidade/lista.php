@@ -26,6 +26,11 @@
                 <td><?php echo $localidade['cidade']; ?></td>
                 <td><?php echo $localidade['estado']; ?></td>
                 <td><?php echo $localidade['pais']; ?></td>
+                <?php
+                                echo "<td><a class='btn-editar' style='color:blue;'
+                                href='atualizarlocalidade.php?id={$localidade['id']}'>Atualizar</a></td>";
+
+                            ?>
             </tr>
         <?php endforeach; ?>
     </table>

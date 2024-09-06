@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $rg = $_POST['rg'];
 
         $controller->criarTreinador($nome, $idade, $altura, $peso, $cpf, $rg);
-
+        header("Location: listatreinador.php");
     } else {
         echo "Todos os campos obrigatórios devem ser preenchidos.";
     }

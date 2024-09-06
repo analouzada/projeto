@@ -7,3 +7,4 @@ $controller = new LocalidadeController($pdo);
 
 $controller->exibirListaLocalidade();
 ?>
+<a href="register-l.php">Registrar Novo?</a>

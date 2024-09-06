@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Assuming criarLocalidade is a method in LocalidadeController for saving location data
         $controller->criarLocalidade($rua, $bairro, $numero, $cep, $cidade, $estado, $pais);
-
+        header("Location: listalocalidade.php");
     } else {
         echo "Todos os campos obrigatórios devem ser preenchidos.";
     }

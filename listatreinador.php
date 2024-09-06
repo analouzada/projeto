@@ -7,3 +7,4 @@ $controller = new TreinadorController($pdo);
 
 $controller->exibirListaTreinador();
 ?>
+<a href="register-t.php">Registrar Novo?</a>
