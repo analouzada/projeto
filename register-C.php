@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,20 +23,20 @@
 </div>
 <h1>Register</h1>
 <div class="form-input">
-<label id="direction">Name</label>
-<input type="text" name="nome" placeholder="Name">
+<label id="direction">Nome</label>
+<input type="text" name="nome" placeholder="Nome">
 
-<label id="direction">Age</label>
-<input type="text" name="age" placeholder="Age">
+<label id="direction">Idade</label>
+<input type="text" name="idade" placeholder="Idade">
 
-<label id="direction">Height</label>
-<input type="text" name="height" placeholder="Height">
+<label id="direction">Altura</label>
+<input type="text" name="altura" placeholder="Altura">
 
-<label id="direction">Weight</label>
-<input type="text" name="weight" placeholder="Weight">
+<label id="direction">Peso</label>
+<input type="text" name="peso" placeholder="Peso">
 
-<label id="direction">Gender</label>
-<input type="text" name="gender" placeholder="Gender">
+<label id="direction">Gênero</label>
+<input type="text" name="genero" placeholder="Gênero">
 
 <label id="direction">CPF</label>
 <input type="text" name="cpf" placeholder="CPF">
@@ -43,8 +44,9 @@
 <label id="direction">RG</label>
 <input type="text" name="rg" placeholder="RG">
 
-<label id="direction">Team</label>
-<input type="text" name="team" placeholder="Team">
+<label id="direction">Equipe</label>
+<input type="text" name="equipe" placeholder="Equipe">
+
 
 <div class="r-button">
 <button>Register</button>
